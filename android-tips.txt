@@ -1,0 +1,103 @@
+不透明度 16进制值 
+100% FF 
+95% F2 
+90% E6 
+85% D9 
+80% CC 
+75% BF 
+70% B3 
+65% A6 
+60% 99 
+55% 8C 
+50% 80 
+45% 73 
+40% 66 
+35% 59 
+30% 4D 
+25% 40 
+20% 33 
+15% 26 
+10% 1A 
+5% 0D 
+0% 00 
+http://blog.csdn.net/bboyfeiyu
+maven是开源项目管理工具，在android studio中可以根据搜索内容下载项目所需要的jar包。
+HTTP请求中同步与异步有什么不同？
+举个例子：普通B/S模式（同步）AJAX技术（异步） 
+同步：提交请求->等待服务器处理->处理完毕返回 这个期间客户端浏览器不能干任何事 
+异步: 请求通过事件触发->服务器处理（这是浏览器仍然可以作其他事情）->处理完毕 
+同步就是你叫我去吃饭，我听到了就和你去吃饭；如果没有听到，你就不停的叫，直到我告诉你听到了，才一起去吃饭。 
+异步就是你叫我，然后自己去吃饭，我得到消息后可能立即走，也可能等到下班才去吃饭。 
+所以，要我请你吃饭就用同步的方法，要请我吃饭就用异步的方法，这样你可以省钱。
+
+注意区分android异步任务的概念：AsyncTask的本质是一个线程池，所有提交的异步任务都会在这个线程池中的工作线程内执行，当工作线程需要跟UI线程交互时，
+工作线程会通过向在UI线程创建的Handler传递消息的方式（Android使用Thread+Handler实现非UI线程更新界面），调用相关的回调函数，从而实现UI界面的更新。
+
+Android之所以有Handler和AsyncTask，都是为了不阻塞主线程（UI线程）（也就是与UI线程异步），
+且UI的更新只能在主线程中完成，因此异步处理是不可避免的。AsyncTask比Handler更轻量级一些（只是代码上轻量一些，而实际上要比handler更耗资源），适用于简单的异步处理。
+
+
+用了<merge>标签，这就表示当有任何一个地方去include这个布局时，会将<merge>标签内包含的内容直接填充到include的位置，不会再添加任何额外的布局结构，可用于布局优化。
+
+动画：使用AnimationUtils.loadAnimation来加载定义在xml中的动画，然后实现AnimationListener,对动画进行监听。http://blog.csdn.net/singwhatiwanna/article/details/9270275
+
+带有下拉刷新功能的Listview控件：http://blog.csdn.net/singwhatiwanna/article/details/9223363
+
+循环广告位组件的实现：http://blog.csdn.net/singwhatiwanna/article/details/46541225
+
+使用ViewPager+Fragment来实现带滚动条的多屏滑动-IndicatorFragmentActivity：http://blog.csdn.net/singwhatiwanna/article/details/17201587
+
+dispatchTouchEvent()、onInterceptTouchEvent()和onTouchEvent()的区别:http://blog.csdn.net/xyz_lmn/article/details/12517911
+
+textview.settextcolor失效的问题:使用textview.setTextColor(getResources().getColor(R.color.xxx))不要使用textview.setTextColor(R.color.xxx) ,后一种是RGB值。
+
+Fragment和View的区别：Fragment是轻量级的activity，拥有生命周期方法，可以用其生命周期方法实现view所不能实现的功能。而且fragment增删和替换很方便，而且降低了activity的
+负担，代码结构更清晰。
+
+Android Studio断点调试：http://www.2cto.com/kf/201506/408358.html
+
+百度地图基本地图：http://developer.baidu.com/map/sdkandev-3.htm
+
+android常用工具类：http://android.jobbole.com/80826/
+
+开发细节：判空：传过来的参数要判空，调接口所得数据要判空，调用某些方法返回值可能为空是要判空；点击：要有条件决定是否可点击，避免狂点而保错。
+
+开发细节：如果要在这个页面显示或要用到上个页面传过来的值，要用onSaveInstanceState保存。
+
+流式布局（热门标签）控件制作：http://blog.csdn.net/lmj623565791/article/details/38352503
+
+Android Design Support Library（一些封装好的常用控件）使用：http://blog.csdn.net/eclipsexys/article/details/46349721
+
+LBS:基于位置的服务,Location Based Service  举例如找到手机用户的当前地理位置，然后在上海市6340平方公里范围内寻找手机用户当前位置处1公里范围内的宾馆、影院、图书馆、加油站等
+的名称和地址。所以说LBS就是要借助互联网或无线网络，在固定用户或移动用户之间，完成定位和服务两大功能。
+
+内存不足时维持运行：当手机系统内存不足时，会回收进程，直至内存充足时系统会自动重启进程。针对这种情况，可在APP内新增一个独立的进程B，定时查询serviceA是否是否出于开启状态。
+当监听到进程A被杀死，则重新开启服务。但如果进程B同时也被系统回收，则该方法失效。 
+
+tip:横竖屏切换时，MainActivity中的onDestroy()方法会被自动调用。
+
+一个很赞的RecyclerView Adapter辅助类(类似于viewholderhelper):http://droidyue.com/blog/2016/05/09/baserecyclerviewadapterhelper/index.html
+
+图片缓存通用的概念：（1）RequestManager：请求生成和管理模块；(2) Engine：引擎部分，负责创建任务(获取数据)，并调度执行；
+(3) GetDataInterface：数据获取接口，负责从各个数据源获取数据。比如 MemoryCache 从内存缓存获取数据、DiskCache 从本地缓存获取数据，下载器从网络获取数据等。
+(4) Displayer：资源(图片)显示器，用于显示或操作资源。比如 ImageView，这几个图片缓存都不仅仅支持 ImageView，同时支持其他 View 以及虚拟的 Displayer 概念。
+(5) Processor 资源(图片)处理器，负责处理资源，比如旋转、压缩、截取等。
+以上概念的称呼在不同图片缓存中可能不同，比如 Displayer 在 ImageLoader 中叫做 ImageAware，在 Picasso 和 Glide 中叫做 Target。
+
+Glide 不仅是一个图片缓存，它支持 Gif、WebP、缩略图。甚至是 Video，所以更该当做一个媒体缓存。
+
+Android开发：使用Glide动态加载圆形图片和圆角图片--图片开发框架：http://blog.csdn.net/li5685918/article/details/49246603
+
+Glide 入门到精通之一：http://blog.csdn.net/xx326664162/article/details/50960760
+
+Glide 一个专注于平滑滚动的图片加载和缓存库(介绍与常见问题)：http://www.jianshu.com/p/4a3177b57949
+
+tip：导入外部module时要修改其gradle，删掉多余的部分，改掉buildToolsVersion。
+
+Android 自定义View：http://blog.csdn.net/lmj623565791/article/details/24252901
+
+gradle home设置（用于解决gradle版本问题）：setting>Build,EX...>可设置gradle home路径
+
+廖雪峰git教程：http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+
+welcome to give me more tips!
